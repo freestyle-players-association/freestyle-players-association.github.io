@@ -50,7 +50,7 @@ const config: Config = {
     navbar: {
       title: 'Freestyle Players Association',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Freestyle Players Association Logo',
         src: 'img/logo.png',
       },
       items: [
@@ -61,13 +61,13 @@ const config: Config = {
           position: 'left',
         },
         {
-          href: 'https://calendar.freestyledisc.org/',
-          label: 'Event Calendar',
+          href: 'https://events.freestyledisc.org/',
+          label: 'Events Calendar',
           position: 'right',
         },
         {
           href: 'https://www.freestyledisc.org/',
-          label: 'FPA Blog',
+          label: 'FPA Site',
           position: 'right',
         },
       ],
