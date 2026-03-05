@@ -1,44 +1,43 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
+import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: 'Freestyle Players Association',
-  tagline: '',
-  favicon: 'img/favicon.ico',
+  title: "Freestyle Players Association",
+  tagline: "",
+  favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: 'https://freestyle-players-association.github.io',
+  url: "https://freestyle-players-association.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'freestyle-players-association', // Usually your GitHub org/user name.
-  projectName: 'freestyle-players-association.github.io', // Usually your repo name.
+  organizationName: "freestyle-players-association", // Usually your GitHub org/user name.
+  projectName: "freestyle-players-association.github.io", // Usually your repo name.
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
   trailingSlash: false,
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: {
-          sidebarPath: './sidebars.ts',
+          sidebarPath: "./sidebars.ts",
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
     ],
@@ -46,29 +45,29 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/fpa-social-card.jpg',
+    image: "img/fpa-social-card.jpg",
     navbar: {
-      title: 'Freestyle Players Association',
+      title: "Freestyle Players Association",
       logo: {
-        alt: 'Freestyle Players Association Logo',
-        src: 'img/logo.png',
+        alt: "Freestyle Players Association Logo",
+        src: "img/logo.png",
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          label: 'Manuals',
-          position: 'left',
+          type: "docSidebar",
+          sidebarId: "tutorialSidebar",
+          label: "Manuals",
+          position: "left",
         },
         {
-          href: 'https://events.freestyledisc.org/',
-          label: 'Events Calendar',
-          position: 'right',
+          href: "https://events.freestyledisc.org/",
+          label: "Events Calendar",
+          position: "right",
         },
         {
-          href: 'https://www.freestyledisc.org/',
-          label: 'FPA Site',
-          position: 'right',
+          href: "https://www.freestyledisc.org/",
+          label: "FPA Site",
+          position: "right",
         },
       ],
     },
