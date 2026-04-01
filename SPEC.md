@@ -14,15 +14,15 @@ rendering at runtime), deployable to GitHub Pages, and require zero external ser
 
 ## Stack
 
-| Concern | Choice |
-|---|---|
-| Framework | SvelteKit with `@sveltejs/adapter-static` |
-| UI components | shadcn-svelte |
-| Markdown processing | mdsvex |
-| Search | Pagefind (post-build, static index) |
-| Styling | Tailwind CSS (via shadcn-svelte) |
-| Dark mode | shadcn-svelte `mode-watcher` |
-| Deployment | GitHub Actions → GitHub Pages (same as current) |
+| Concern             | Choice                                          |
+| ------------------- | ----------------------------------------------- |
+| Framework           | SvelteKit with `@sveltejs/adapter-static`       |
+| UI components       | shadcn-svelte                                   |
+| Markdown processing | mdsvex                                          |
+| Search              | Pagefind (post-build, static index)             |
+| Styling             | Tailwind CSS (via shadcn-svelte)                |
+| Dark mode           | shadcn-svelte `mode-watcher`                    |
+| Deployment          | GitHub Actions → GitHub Pages (same as current) |
 
 ---
 
@@ -52,7 +52,7 @@ maintenance-free from a nav perspective.
 
 ```yaml
 ---
-title: "Event Progression"   # required for display label override
+title: "Event Progression" # required for display label override
 ---
 ```
 
@@ -72,13 +72,13 @@ links.
 // Shape of the nav tree
 type NavPage = {
   title: string;
-  slug: string;        // e.g. "competition-manual/event-progression"
-  href: string;        // e.g. "/docs/competition-manual/event-progression"
+  slug: string; // e.g. "competition-manual/event-progression"
+  href: string; // e.g. "/docs/competition-manual/event-progression"
 };
 
 type NavSection = {
   title: string;
-  slug: string;        // e.g. "competition-manual"
+  slug: string; // e.g. "competition-manual"
   pages: NavPage[];
 };
 
@@ -89,11 +89,11 @@ type NavTree = NavSection[];
 
 ## Routing
 
-| URL pattern | Description |
-|---|---|
-| `/` | Homepage (renders `docs/index.md` or a welcome page) |
-| `/docs/[section]/[page]` | Individual doc page |
-| `/docs/[section]` | Section index page (lists pages in section) |
+| URL pattern              | Description                                          |
+| ------------------------ | ---------------------------------------------------- |
+| `/`                      | Homepage (renders `docs/index.md` or a welcome page) |
+| `/docs/[section]/[page]` | Individual doc page                                  |
+| `/docs/[section]`        | Section index page (lists pages in section)          |
 
 SvelteKit's `prerender = true` must be set globally. All routes must be prerendered
 at build time — there is no dynamic server.
@@ -201,12 +201,12 @@ top-level pages. The nav builder must skip any file whose name starts with `_`.
 
 ### Summary of precedence
 
-| Situation | File to create |
-|---|---|
-| Pure documentation | `.md` file |
-| Doc with one interactive widget | `.md` file with imported Svelte component |
-| Mostly interactive, some prose | `.svelte` file importing colocated `_fragment.md` files |
-| Fully custom page | `.svelte` file with no Markdown |
+| Situation                       | File to create                                          |
+| ------------------------------- | ------------------------------------------------------- |
+| Pure documentation              | `.md` file                                              |
+| Doc with one interactive widget | `.md` file with imported Svelte component               |
+| Mostly interactive, some prose  | `.svelte` file importing colocated `_fragment.md` files |
+| Fully custom page               | `.svelte` file with no Markdown                         |
 
 Admonition blocks (`:::note`, `:::warning`, etc.) — if present in the docs — require a
 remark plugin. Audit the docs for usage before implementing; if unused, skip.
