@@ -5,6 +5,7 @@
   import type { ComponentProps } from "svelte";
   import { Button } from "$lib/components/ui/button";
   import { ExternalLink } from "@lucide/svelte";
+  import ModeToggle from "./ModeToggle.svelte";
 
   let {
     nav,
@@ -43,6 +44,9 @@
     {/each}
   </Sidebar.Content>
   <Sidebar.Footer>
+    <div class="hidden md:flex justify-center items-center mb-8">
+      <ModeToggle />
+    </div>
     <div class="flex flex-col gap-2">
       <Button size="lg" href="https://events.freestyledisc.org">
         <ExternalLink />Event Calendar
