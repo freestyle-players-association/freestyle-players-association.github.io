@@ -5,7 +5,7 @@
 </script>
 
 <header
-	class="bg-background/95 supports-backdrop-blur:bg-background/60 sticky top-0 z-50 flex h-12 items-center gap-2 border-b px-4 backdrop-blur"
+	class="md:hidden bg-background/95 supports-backdrop-blur:bg-background/60 sticky top-0 z-50 flex h-12 items-center gap-2 border-b px-4 backdrop-blur"
 >
 	<Sidebar.Trigger />
 	<div class="flex flex-1 items-center gap-2">

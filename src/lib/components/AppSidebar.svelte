@@ -15,7 +15,7 @@
 <Sidebar.Root collapsible="offcanvas" {...restProps}>
   <Sidebar.Header>
     <a href="/" class="text-2xl font-bold leading-tight text-center my-4">
-      FPA Docs</a
+      Freestyle Players Association <span class="font-normal">Docs</span></a
     >
   </Sidebar.Header>
 

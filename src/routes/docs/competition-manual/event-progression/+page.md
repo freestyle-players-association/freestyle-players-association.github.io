@@ -3,12 +3,10 @@ title: Event Progression
 order: 1
 ---
 
-# 1 Event Progression
+<script>
+  import EventProgression from '$lib/components/EventProgression.svelte';
+</script>
 
-| Teams | Final     | Byes      | EST                      | Semi Final                                                | Byes    | EST                    | Quarter Final                                           | Byes    | EST                    | Prelims                                                       | Byes        | EST                    | Qualifiers                                                                | Byes    | EST                    |
-| ----- | --------- | --------- | ------------------------ | --------------------------------------------------------- | ------- | ---------------------- | ------------------------------------------------------- | ------- | ---------------------- | ------------------------------------------------------------- | ----------- | ---------------------- | ------------------------------------------------------------------------- | ------- | ---------------------- |
-| 5-8   | 5-8 teams |           | 0.5-1 hours per division |                                                           |         |                        |                                                         |         |                        |                                                               |             |                        |                                                                           |         |                        |
-| 9-16  | 8 teams   | Seeds 1-4 | 1 hour per division      | Seeds 5-16 in 1 pool (5-9 teams) or 2 pools (10-12 teams) | no byes | 1-2 hours per division |                                                         |         |                        |                                                               |             |                        |                                                                           |         |                        |
-| 17-24 | 8 teams   | no byes   | 1 hour per division      | 2 pools - 16 teams                                        | no byes | 2 hours per division   | Seeds 9-24 in 1 pool (9 teams) or 2 pools (10-16 teams) | no byes | 1-2 hours per division |                                                               |             |                        |                                                                           |         |                        |
-| 25-32 | 8 teams   | no byes   | 1 hour per division      | 2 pools - 16 teams                                        | no byes | 2 hours per division   | 2 pools - 16 teams                                      | no byes | 2 hours per division   | Seeds 17-32 play in 1 pool (9 teams) or 2 pools (10-16 teams) | no byes     | 1-2 hours per division |                                                                           |         |                        |
-| 33-64 | 8 teams   | no byes   | 1 hour per division      | 2 pools - 16 teams                                        | no byes | 2 hours per division   | 2 pools - 16 teams                                      | no byes | 2 hours per division   | 2 pools - 16 teams                                            | Seeds 17-24 | 2 hours per division   | 25-64 in 1 pool (9 teams), 2 pools (10-20 teams) or 4 pools (21-40 teams) | no byes | 1-4 hours per division |
+# Event Progression
+
+<EventProgression />
