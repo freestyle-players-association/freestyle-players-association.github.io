@@ -1,6 +1,5 @@
 ---
 title: Judging System
-permalink: judging-system
 ---
 
 # The Judging System

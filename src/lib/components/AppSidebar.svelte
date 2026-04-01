@@ -30,7 +30,7 @@
               <Sidebar.MenuItem>
                 <Sidebar.MenuButton size="lg" {isActive}>
                   {#snippet child({ props })}
-                    <a class="py-4 px-2" href={navPage.href} {...props}>
+                    <a href={navPage.href} {...props}>
                       {navPage.title}
                     </a>
                   {/snippet}

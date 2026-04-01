@@ -1,6 +1,6 @@
 ---
-sidebar-position: 4
-title: 4 - Checklist of Needs for Competition Areas
+title: Checklist
+order: 4
 ---
 
 # 4 Checklist of Needs for Competition Areas

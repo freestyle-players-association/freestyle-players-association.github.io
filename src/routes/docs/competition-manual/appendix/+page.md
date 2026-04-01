@@ -1,6 +1,6 @@
 ---
-sidebar-position: 3
-title: 3 - Appendix to the Judging Manual
+title: Appendix to the Judging Manual
+order: 3
 ---
 
 # 3 Appendix to the Judging Manual

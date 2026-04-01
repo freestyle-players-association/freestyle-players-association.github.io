@@ -16,12 +16,7 @@ export type NavSection = {
 
 export type NavTree = NavSection[];
 
-// Docs live as +page.md / +page.svelte inside src/routes/docs/
 const DOCS_DIR = join(process.cwd(), "src/routes/docs");
-
-function stripNumericPrefix(name: string): string {
-  return name.replace(/^\d+-/, "");
-}
 
 function titleCase(str: string): string {
   return str
@@ -30,86 +25,29 @@ function titleCase(str: string): string {
     .join(" ");
 }
 
-function labelFromName(name: string): string {
-  return titleCase(stripNumericPrefix(name));
-}
-
-function getPageTitle(dirPath: string, dirName: string): string {
-  const fallback = labelFromName(dirName);
+function getPageMeta(dirPath: string, dirName: string): { title: string; order: number } {
   const mdPath = join(dirPath, "+page.md");
-  if (!existsSync(mdPath)) return fallback;
-  try {
-    const content = readFileSync(mdPath, "utf-8");
-    const { data } = matter(content);
-    return data.title || data.sidebar_label || data["sidebar-label"] || fallback;
-  } catch {
-    return fallback;
+  if (existsSync(mdPath)) {
+    try {
+      const { data } = matter(readFileSync(mdPath, "utf-8"));
+      return {
+        title: data.title ?? titleCase(dirName),
+        order: data.order ?? 999,
+      };
+    } catch {
+      // fall through
+    }
   }
+  return { title: titleCase(dirName), order: 999 };
 }
-
-function getSectionTitle(sectionPath: string, dirName: string): string {
-  const fallback = labelFromName(dirName);
-  try {
-    const raw = readFileSync(join(sectionPath, "_category_.json"), "utf-8");
-    const data = JSON.parse(raw);
-    return data.label || fallback;
-  } catch {
-    /* ignore */
-  }
-  try {
-    const raw = readFileSync(join(sectionPath, "_category_.md"), "utf-8");
-    const { data } = matter(raw);
-    return data.title || fallback;
-  } catch {
-    /* ignore */
-  }
-  return fallback;
-}
-
-function getSectionOrder(sectionPath: string, dirName: string): number {
-  const match = dirName.match(/^(\d+)-/);
-  if (match) return parseInt(match[1]);
-  try {
-    const raw = readFileSync(join(sectionPath, "_category_.json"), "utf-8");
-    const data = JSON.parse(raw);
-    return data.position ?? 999;
-  } catch {
-    /* ignore */
-  }
-  return 999;
-}
-
-function getPageOrder(dirPath: string, dirName: string): number {
-  const match = dirName.match(/^(\d+)-/);
-  if (match) return parseInt(match[1]);
-  const mdPath = join(dirPath, "+page.md");
-  if (!existsSync(mdPath)) return 999;
-  try {
-    const content = readFileSync(mdPath, "utf-8");
-    const { data } = matter(content);
-    const pos = data.sidebar_position ?? data["sidebar-position"] ?? data.nav_order;
-    if (pos !== undefined) return parseInt(String(pos));
-  } catch {
-    /* ignore */
-  }
-  return 999;
-}
-
-let _cache: NavTree | null = null;
 
 export function getNavTree(): NavTree {
-  if (_cache) return _cache;
+  const sections: NavSection[] = [];
 
-  const sections: Array<NavSection & { _order: number }> = [];
-
-  for (const entry of readdirSync(DOCS_DIR)) {
+  for (const entry of readdirSync(DOCS_DIR).sort()) {
     const entryPath = join(DOCS_DIR, entry);
     if (!statSync(entryPath).isDirectory()) continue;
     if (entry.startsWith("_") || entry.startsWith("+") || entry.startsWith("[")) continue;
-
-    const sectionSlug = stripNumericPrefix(entry);
-    const sectionTitle = getSectionTitle(entryPath, entry);
-    const sectionOrder = getSectionOrder(entryPath, entry);
 
     const pages: Array<NavPage & { _order: number }> = [];
 
@@ -117,33 +55,18 @@ export function getNavTree(): NavTree {
       if (file.startsWith("_") || file.startsWith("+") || file.startsWith("[")) continue;
       const filePath = join(entryPath, file);
       if (!statSync(filePath).isDirectory()) continue;
+      if (!existsSync(join(filePath, "+page.md")) && !existsSync(join(filePath, "+page.svelte"))) continue;
 
-      // A page directory must contain +page.md or +page.svelte
-      const hasMd = existsSync(join(filePath, "+page.md"));
-      const hasSvelte = existsSync(join(filePath, "+page.svelte"));
-      if (!hasMd && !hasSvelte) continue;
-
-      const pageSlug = stripNumericPrefix(file);
-      const pageTitle = getPageTitle(filePath, file);
-      const pageOrder = getPageOrder(filePath, file);
-
-      pages.push({
-        title: pageTitle,
-        slug: pageSlug,
-        href: `/docs/${sectionSlug}/${pageSlug}`,
-        _order: pageOrder,
-      });
+      const { title, order } = getPageMeta(filePath, file);
+      pages.push({ title, slug: file, href: `/docs/${entry}/${file}`, _order: order });
     }
 
     sections.push({
-      title: sectionTitle,
-      slug: sectionSlug,
+      title: titleCase(entry),
+      slug: entry,
       pages: pages.sort((a, b) => a._order - b._order).map(({ _order: _, ...p }) => p),
-      _order: sectionOrder,
     });
   }
 
-  _cache = sections.sort((a, b) => a._order - b._order).map(({ _order: _, ...s }) => s);
-
-  return _cache;
+  return sections;
 }

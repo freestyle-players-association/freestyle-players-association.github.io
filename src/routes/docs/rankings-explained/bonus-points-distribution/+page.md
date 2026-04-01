@@ -1,8 +1,6 @@
 ---
 title: Bonus Points Distribution
-parent: Rankings Explained
-nav_order: 3
-permalink: rankings-explained/bonus-points-distribution
+order: 2
 ---
 
 # Bonus Points Distribution

@@ -1,8 +1,6 @@
 ---
 title: Rankings Explained
-parent: Rankings Explained
-nav_order: 1
-permalink: rankings-explained/explanation
+order: 1
 ---
 
 # Rankings Explained

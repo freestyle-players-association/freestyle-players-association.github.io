@@ -1,6 +1,6 @@
 ---
-sidebar-position: 2
-title: 2 - Judging Manual
+title: Judging Manual
+order: 2
 ---
 
 # 2 Judging Manual

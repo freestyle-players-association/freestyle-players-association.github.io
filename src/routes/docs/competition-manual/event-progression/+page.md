@@ -1,6 +1,6 @@
 ---
-sidebar-position: 1
-title: 1 - Event Progression
+title: Event Progression
+order: 1
 ---
 
 # 1 Event Progression
