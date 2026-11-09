@@ -168,7 +168,7 @@ title: Scoring Calculator
 Use the calculator below to estimate your score.
 
 <script>
-  import ScoringCalculator from '$lib/components/ScoringCalculator.svelte';
+  import ScoringCalculator from '#lib/components/ScoringCalculator.svelte';
 </script>
 
 <ScoringCalculator />
@@ -186,7 +186,7 @@ directory and imported as components:
 <!-- docs/competition-manual/scoring.svelte -->
 <script>
   import Intro from './scoring-intro.md';
-  import ScoringTable from '$lib/components/ScoringTable.svelte';
+  import ScoringTable from '#lib/components/ScoringTable.svelte';
   import Notes from './scoring-notes.md';
 </script>
 

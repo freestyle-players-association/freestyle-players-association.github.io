@@ -46,7 +46,6 @@ const svelteConfig = {
     },
   },
   adapter: adapter(),
-  alias: { $lib: "src/lib" },
   preprocess: [
     mdsvex({
       extensions: [".svx", ".md"],

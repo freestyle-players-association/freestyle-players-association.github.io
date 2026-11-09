@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import * as Button from '$lib/components/ui/button/index.js';
+	import * as Button from '#lib/components/ui/button/index.js';
 	import { BookOpen } from '@lucide/svelte';
 
 	let { data }: { data: PageData } = $props();

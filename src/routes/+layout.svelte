@@ -1,10 +1,10 @@
 <script lang="ts">
 	import './layout.css';
-	import favicon from '$lib/assets/favicon.ico';
+	import favicon from '#lib/assets/favicon.ico';
 	import { ModeWatcher } from 'mode-watcher';
-	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
-	import AppSidebar from '$lib/components/AppSidebar.svelte';
-	import SiteHeader from '$lib/components/SiteHeader.svelte';
+	import * as Sidebar from '#lib/components/ui/sidebar/index.js';
+	import AppSidebar from '#lib/components/AppSidebar.svelte';
+	import SiteHeader from '#lib/components/SiteHeader.svelte';
 	import type { LayoutData } from './$types';
 
 	let { data, children }: { data: LayoutData; children: import('svelte').Snippet } = $props();

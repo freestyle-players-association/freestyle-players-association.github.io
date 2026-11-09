@@ -1,7 +1,7 @@
 <script lang="ts">
-	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
-	import * as Button from '$lib/components/ui/button/index.js';
-	import ModeToggle from '$lib/components/ModeToggle.svelte';
+	import * as Sidebar from '#lib/components/ui/sidebar/index.js';
+	import * as Button from '#lib/components/ui/button/index.js';
+	import ModeToggle from '#lib/components/ModeToggle.svelte';
 </script>
 
 <header

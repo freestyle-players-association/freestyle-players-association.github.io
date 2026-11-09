@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
-    import { cn } from '$lib/utils';
+    import { cn } from '#lib/utils.ts';
 
 	type TocEntry = { id: string; text: string; level: 2 | 3 };
 
