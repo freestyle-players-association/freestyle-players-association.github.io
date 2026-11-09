@@ -131,6 +131,7 @@
 		if (count < 64) count += 1;
 	}
 
+	/** @param {Event & { currentTarget: HTMLInputElement }} e */
 	function handleInput(e) {
 		const val = parseInt(e.currentTarget.value, 10);
 		if (!isNaN(val)) {
