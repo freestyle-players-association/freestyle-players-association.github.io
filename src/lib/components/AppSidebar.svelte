@@ -1,9 +1,9 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import * as Sidebar from "$lib/components/ui/sidebar/index.js";
-  import type { NavTree } from "$lib/nav.server.js";
+  import * as Sidebar from "#lib/components/ui/sidebar/index.js";
+  import type { NavTree } from "#lib/nav.server.js";
   import type { ComponentProps } from "svelte";
-  import { Button } from "$lib/components/ui/button";
+  import { Button } from "#lib/components/ui/button/index.js";
   import { ExternalLink } from "@lucide/svelte";
   import ModeToggle from "./ModeToggle.svelte";
 

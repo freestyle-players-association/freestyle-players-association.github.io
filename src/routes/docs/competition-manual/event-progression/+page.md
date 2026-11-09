@@ -4,7 +4,7 @@ order: 1
 ---
 
 <script>
-  import EventProgression from '$lib/components/EventProgression.svelte';
+  import EventProgression from '#lib/components/EventProgression.svelte';
 </script>
 
 # Event Progression
